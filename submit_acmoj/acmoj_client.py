@@ -91,7 +91,7 @@ class ACMOJClient:
 
         return result
 
-    def submit_code(self, problem_id: int, language: str, code_text: str) -> Optional[dict]:
+    def submit_code(self, problem_id: int, language: str, code_text: str) -> Optional[Dict]:
         data = {
             language: language,
             code: code_text
