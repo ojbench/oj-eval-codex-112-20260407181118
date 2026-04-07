@@ -48,7 +48,7 @@ namespace final {
             }
 
             // Allocate argv array (size _argc)
-            _argv = new char*[_argc];
+            _argv = new char*[_argc + 1];
             for (int k = 0; k < _argc; ++k) {
                 const string& s = tokens[k];
                 // Allocate C-string with null terminator
@@ -56,6 +56,7 @@ namespace final {
                 std::memcpy(buf, s.c_str(), s.size() + 1);
                 _argv[k] = buf;
             }
+            _argv[_argc] = nullptr;
         }
         ~arguments() {
             // Free allocated memory to avoid leaks
